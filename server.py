@@ -8,12 +8,26 @@ from bs4 import BeautifulSoup
 # Initialize FastMCP server
 mcp = FastMCP("websearch")
 
+# Rate limiting: prevent overwhelming DuckDuckGo
+_search_lock = asyncio.Lock()
+_MIN_SEARCH_INTERVAL = 2.0  # seconds between search requests
+_last_search_time = 0.0
+
 @mcp.tool()
 async def search(query: str, max_results: int = 5) -> str:
     """
     Performs a web search using DuckDuckGo (via ddgs).
     Returns titles, URLs, and snippets.
+    Rate-limited to ~30 requests per minute to be respectful to DuckDuckGo.
     """
+    global _last_search_time
+    async with _search_lock:
+        now = asyncio.get_event_loop().time()
+        wait_time = _MIN_SEARCH_INTERVAL - (now - _last_search_time)
+        if wait_time > 0:
+            await asyncio.sleep(wait_time)
+        _last_search_time = asyncio.get_event_loop().time()
+
     try:
         # DDGS is a synchronous context manager
         with DDGS() as ddgs:

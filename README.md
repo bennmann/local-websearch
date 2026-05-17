@@ -2,6 +2,8 @@
 
 A local DuckDuckGo web search MCP server. Exposes two tools via the MCP stdio protocol.
 
+The server rate-limits search requests to approximately 30 per minute (2-second minimum interval) to be respectful to DuckDuckGo's infrastructure. Page content fetching is unthrottled but respects standard web etiquette (reasonable User-Agent, 10-second timeout, content truncation to ~6k characters).
+
 ## Tools
 
 - **`search(query, max_results)`** — Searches DuckDuckGo and returns titles, URLs, and snippets.
