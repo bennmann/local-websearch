@@ -1,4 +1,4 @@
-# mcp-local-websearch
+# local-websearch
 
 A local DuckDuckGo web search MCP server. Exposes two tools via the MCP stdio protocol.
 
