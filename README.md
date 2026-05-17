@@ -47,3 +47,21 @@ For any MCP client using stdio transport:
 - ddgs==9.13.0
 - httpx==0.28.1
 - beautifulsoup4==4.14.3
+
+## Future Work
+
+### Licensing
+
+All dependencies use permissive licenses (MIT or BSD-3-Clause) that are compatible with Apache 2.0:
+
+| Dependency | License |
+|------------|---------|
+| mcp | MIT |
+| ddgs | MIT |
+| httpx | BSD-3-Clause |
+| beautifulsoup4 | MIT |
+| lxml (transitive) | BSD-3-Clause |
+| primp (transitive) | MIT |
+| click (transitive) | BSD-3-Clause |
+
+The project could be relicensed under Apache 2.0 if desired.
