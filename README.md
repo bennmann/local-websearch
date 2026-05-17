@@ -1,0 +1,47 @@
+# mcp-local-websearch
+
+A local DuckDuckGo web search MCP server. Exposes two tools via the MCP stdio protocol.
+
+## Tools
+
+- **`search(query, max_results)`** — Searches DuckDuckGo and returns titles, URLs, and snippets.
+- **`fetch_page_content(url)`** — Retrieves and cleans the main text content from a URL.
+
+## Installation
+
+```bash
+pip install -e .
+```
+
+## Vibe Setup
+
+Add to your Vibe configuration:
+
+```toml
+[[mcp_servers]]
+name = "local-websearch"
+transport = "stdio"
+command = ["python3", "/path/to/mcp-local-websearch/server.py"]
+```
+
+## Generic MCP Client Setup
+
+For any MCP client using stdio transport:
+
+```json
+{
+  "mcpServers": {
+    "local-websearch": {
+      "command": "python3",
+      "args": ["/path/to/mcp-local-websearch/server.py"]
+    }
+  }
+}
+```
+
+## Dependencies
+
+- mcp==1.26.0
+- ddgs==9.13.0
+- httpx==0.28.1
+- beautifulsoup4==4.14.3

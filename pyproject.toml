@@ -1,0 +1,11 @@
+[project]
+name = "mcp-local-websearch"
+version = "0.1.0"
+description = "A local DuckDuckGo web search MCP server"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp==1.26.0",
+    "ddgs==9.13.0",
+    "httpx==0.28.1",
+    "beautifulsoup4==4.14.3",
+]
