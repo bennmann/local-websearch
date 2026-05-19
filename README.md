@@ -1,6 +1,6 @@
 # local-websearch
 
-A local DuckDuckGo web search MCP server. Exposes two tools via the MCP stdio protocol.
+A local DuckDuckGo web search MCP server in less than 150 lines of code. Exposes two tools via the MCP stdio protocol.
 
 The server rate-limits search requests to approximately 30 per minute (2-second minimum interval) to be respectful to DuckDuckGo's infrastructure. Page content fetching is unthrottled but respects standard web etiquette (reasonable User-Agent, 10-second timeout, content truncation to ~15k characters).
 
