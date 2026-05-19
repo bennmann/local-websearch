@@ -7,7 +7,7 @@ The server rate-limits search requests to approximately 30 per minute (2-second 
 ## Tools
 
 - **`search(query, max_results)`** — Searches DuckDuckGo and returns titles, URLs, and snippets.
-- **`fetch_page_content(url)`** — Retrieves and cleans the main text content from a URL.
+- **`fetch_page_content(url, max_length)`** — Retrieves and cleans the main text content from a URL. Default `max_length` is 15000 characters. (Reference: Wikipedia articles average 10k-20k chars; short articles 3k-5k; long articles 50k+.)
 
 ## Installation
 
@@ -48,11 +48,11 @@ For any MCP client using stdio transport:
 - httpx==0.28.1
 - beautifulsoup4==4.14.3
 
-## Future Work
+## License
 
-### Licensing
+Licensed under [Apache 2.0](LICENSE).
 
-All dependencies use permissive licenses (MIT or BSD-3-Clause) that are compatible with Apache 2.0:
+Dependencies use permissive licenses (MIT or BSD-3-Clause) compatible with Apache 2.0:
 
 | Dependency | License |
 |------------|---------|
@@ -64,4 +64,6 @@ All dependencies use permissive licenses (MIT or BSD-3-Clause) that are compatib
 | primp (transitive) | MIT |
 | click (transitive) | BSD-3-Clause |
 
-The project could be relicensed under Apache 2.0 if desired.
+## AI Usage Disclosure
+
+This project was developed with assistance from AI models: **Mistral Vibe** and **Qwen3 27B** (various Unsloth quants).
