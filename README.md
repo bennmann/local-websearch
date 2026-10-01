@@ -48,6 +48,12 @@ For any MCP client using stdio transport:
 - httpx==0.28.1
 - beautifulsoup4==4.14.3
 
+## Future Improvements
+
+webfetch feature needs more robust rate limiting.
+
+do we want jq flags for convenient parsing GitHub comments/other common jq on the web?
+
 ## License
 
 Licensed under [Apache 2.0](LICENSE).
